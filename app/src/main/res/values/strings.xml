@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Peacock_FirstTask</string>
+    <string name="title">User Info Form</string>
+    <string name="userName">Enter Name</string>
+    <string name="userContact">Enter Contact No.</string>
+    <string name="userEmail">Enter Email</string>
+    <string name="userAddress">Enter Address</string>
+    <string name="buttonText">Submit</string>
 </resources>
