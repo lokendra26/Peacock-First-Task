@@ -8,12 +8,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.peacock_firsttask.UtilsClasses.User_Form;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText name;
     EditText contact;
     EditText email;
     EditText address;
+
 
 
     @Override
@@ -26,9 +29,11 @@ public class MainActivity extends AppCompatActivity {
         email=findViewById(R.id.User_Email);
         address=findViewById(R.id.User_Address);
     }
-    private boolean validateName( EditText name){
-        String nameInput;
-        nameInput = name.getText().toString().trim();
+
+
+
+    private boolean validateName(String nameInput){
+
 
         if(nameInput.isEmpty()){
             name.setError("Field can't be empty");
@@ -49,9 +54,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     }
-    private boolean validateContact( EditText contact){
-        String contactInput;
-        contactInput = contact.getText().toString().trim();
+    private boolean validateContact(String contactInput){
 
         if(contactInput.isEmpty()){
             contact.setError("Field can't be empty");
@@ -68,9 +71,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private boolean validateEmail( EditText email){
-        String emailInput;
-        emailInput = email.getText().toString().trim();
+    private boolean validateEmail(String emailInput){
 
         if(emailInput.isEmpty()){
             email.setError("Field can't be empty");
@@ -86,9 +87,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     }
-    private boolean validateAddress( EditText address){
-        String addressInput;
-        addressInput = address.getText().toString().trim();
+    private boolean validateAddress(String addressInput){
 
         if(addressInput.isEmpty()){
             address.setError("Field can't be empty");
@@ -107,11 +106,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void onclick(View view) {
 
-        if(!validateName(name)  | !validateContact(contact) | !validateEmail(email) | !validateAddress(address))
+        String nameInput = name.getText().toString().trim();
+        String contactInput = contact.getText().toString().trim();
+        String emailInput = email.getText().toString().trim();
+        String addressInput = address.getText().toString().trim();
+
+        if(!validateName(nameInput)  | !validateContact(contactInput) | !validateEmail(emailInput) | !validateAddress(addressInput))
         {
+            Toast.makeText(MainActivity.this,"Form is not Submitted",Toast.LENGTH_SHORT).show();
             return;
         }
-        Toast.makeText(MainActivity.this,"Form is Submitted",Toast.LENGTH_SHORT).show();
+        User_Form form = new User_Form(nameInput, contactInput, emailInput, addressInput);
+        Toast.makeText(MainActivity.this,nameInput+"\n"+contactInput+"\n"+emailInput+"\n"+addressInput+"\n",Toast.LENGTH_SHORT).show();
     }
 
 }
