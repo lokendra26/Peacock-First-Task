@@ -10,6 +10,9 @@ import android.widget.Toast;
 
 import com.example.peacock_firsttask.UtilsClasses.User_Form;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText name;
@@ -71,13 +74,34 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private boolean validateEmail(String emailInput){
+    protected boolean validateEmail(String emailInput){
 
-        if(emailInput.isEmpty()){
+
+        String regex1 = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        Pattern pattern;
+        Matcher matcher;
+        pattern = Pattern.compile(regex1);
+        if(emailInput.isEmpty())
+        {
             email.setError("Field can't be empty");
             return false;
         }
-        else if(!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()){
+        matcher = pattern.matcher(emailInput);
+        if(matcher.matches())
+        {
+            return true;
+        }
+        else {
+            email.setError("Please enter a valid email address");
+            return false;
+        }
+        //return matcher.matches();
+
+        /* if(emailInput.isEmpty()){
+            email.setError("Field can't be empty");
+            return false;
+        }
+        else if(!Pattern.EMAIL_ADDRESS.matcher(emailInput).matches()){
             email.setError("Please enter a valid email address");
             return false;
         }
@@ -85,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         {
             email.setError(null);
             return true;
-        }
+        } */
     }
     private boolean validateAddress(String addressInput){
 
