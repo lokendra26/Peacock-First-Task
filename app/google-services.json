@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "972521597736",
+    "firebase_url": "https://peacock-firsttask.firebaseio.com",
+    "project_id": "peacock-firsttask",
+    "storage_bucket": "peacock-firsttask.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972521597736:android:075493b2acd7c8a4a23e1d",
+        "android_client_info": {
+          "package_name": "com.example.peacock_firsttask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "972521597736-v6g7t17c9j6d9300urjd5lrf56nqapd8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.peacock_firsttask",
+            "certificate_hash": "00762f9bcd35073ccae7a46ba28136e85096376b"
+          }
+        },
+        {
+          "client_id": "972521597736-82un43fjq6vdq39ammmg10iuuj4ul4ug.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuXjEFXTDdwC9kkhm5cQs6URvOdFvYsZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "972521597736-82un43fjq6vdq39ammmg10iuuj4ul4ug.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

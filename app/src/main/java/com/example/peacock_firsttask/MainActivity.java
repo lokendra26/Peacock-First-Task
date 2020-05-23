@@ -1,14 +1,19 @@
 package com.example.peacock_firsttask;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.peacock_firsttask.UtilsClasses.User_Form;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -31,6 +36,20 @@ public class MainActivity extends AppCompatActivity {
         contact=findViewById(R.id.User_Contact);
         email=findViewById(R.id.User_Email);
         address=findViewById(R.id.User_Address);
+
+
+        FirebaseMessaging.getInstance().subscribeToTopic("PushNotification")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = "Successfull";
+                        if (!task.isSuccessful()) {
+                            msg = "Failed";
+                        }
+
+                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
 
@@ -143,5 +162,7 @@ public class MainActivity extends AppCompatActivity {
         User_Form form = new User_Form(nameInput, contactInput, emailInput, addressInput);
         Toast.makeText(MainActivity.this,nameInput+"\n"+contactInput+"\n"+emailInput+"\n"+addressInput+"\n",Toast.LENGTH_SHORT).show();
     }
+
+
 
 }
